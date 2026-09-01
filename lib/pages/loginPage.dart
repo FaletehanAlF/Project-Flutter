@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'homePage.dart';
+import 'registerPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -126,7 +128,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        // Navigation ke Home akan dibuat nanti.
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        );
                       }
                     },
                     child: Text(
@@ -143,7 +150,12 @@ class _LoginPageState extends State<LoginPage> {
                 Center(
                   child: TextButton(
                     onPressed: () {
-                      // Register akan dibuat nanti.
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterPage(),
+                        ),
+                      );
                     },
                     child: Text(
                       'Don\'t have an account? Register',

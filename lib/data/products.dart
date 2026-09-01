@@ -3,7 +3,7 @@ final List<Map<String, dynamic>> products = [
     'name': 'Monterey Jacket',
     'category': 'Jacket',
     'price': 2676468,
-    'image': 'assets/images/jacket.jpg',
+    'image': 'assets/images/Monterey.jpg',
     'isFavorite': false,
   },
   {
