@@ -22,7 +22,7 @@ class _HomepageState extends State<Homepage> {
     final nama = data["nama"];
     final umur = data["umur"];
 
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       Container(
         color: Colors.grey.shade200,
         child: Center(
@@ -30,7 +30,7 @@ class _HomepageState extends State<Homepage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/images/kimmy.jpg",
+                "assets/images/maxverstappen.jpg",
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
         title: Text("Home Page"),
       ),
 
-      body: _pages[_currentIndex],
+      body: pages[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

@@ -5,7 +5,6 @@ import 'package:belajar_flutter2/pages/notifikasiPage.dart';
 import 'package:belajar_flutter2/pages/pesananPage.dart';
 import 'package:belajar_flutter2/pages/profilePage.dart';
 import 'package:belajar_flutter2/pages/registerPage.dart';
-import 'package:belajar_flutter2/pages/searchPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {

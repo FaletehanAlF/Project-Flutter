@@ -5,6 +5,11 @@ class Searchpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Searchpage();
+    return Container(
+      color: Colors.blue.shade100,
+      child: Center(
+        child: Text("Search"),
+      ),
+    );
   }
 }
