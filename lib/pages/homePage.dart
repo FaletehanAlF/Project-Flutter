@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:belajar_flutter2/pages/profilePage.dart';
 import 'package:belajar_flutter2/pages/notifikasiPage.dart';
 import 'package:belajar_flutter2/pages/keranjangPage.dart';
@@ -62,67 +63,38 @@ class _HomepageState extends State<Homepage> {
 
       body: pages[_currentIndex],
 
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.orange,
-        unselectedItemColor: Colors.grey,
-
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-
+        onTap: (i) => setState(() => _currentIndex = i),
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: _currentIndex == 0
-                  ? Colors.orange
-                  : Colors.grey,
-            ),
-            label: "Home",
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
+            selectedColor: Colors.orange,
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: _currentIndex == 1
-                  ? Colors.purple
-                  : Colors.grey,
-            ),
-            label: "Profile",
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.person),
+            title: const Text("Profile"),
+            selectedColor: Colors.purple,
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.notifications,
-              color: _currentIndex == 2
-                  ? Colors.red
-                  : Colors.grey,
-            ),
-            label: "Notifikasi",
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.notifications),
+            title: const Text("Notifikasi"),
+            selectedColor: Colors.red,
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart,
-              color: _currentIndex == 3
-                  ? Colors.green
-                  : Colors.grey,
-            ),
-            label: "Keranjang",
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.shopping_cart),
+            title: const Text("Keranjang"),
+            selectedColor: Colors.green,
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.receipt_long,
-              color: _currentIndex == 4
-                  ? Colors.teal
-                  : Colors.grey,
-            ),
-            label: "Pesanan",
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.receipt_long),
+            title: const Text("Pesanan"),
+            selectedColor: Colors.teal,
           ),
         ],
       ),
