@@ -76,9 +76,13 @@ flutter:
     - family: TitilliumWeb
       fonts:
         - asset: assets/fonts/TitilliumWeb-Regular.ttf
+          weight: 400
         - asset: assets/fonts/TitilliumWeb-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/TitilliumWeb-Italic.ttf
+          style: italic
         - asset: assets/fonts/TitilliumWeb-Bold.ttf
+          weight: 700
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
