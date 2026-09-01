@@ -6,6 +6,7 @@ import 'package:belajar_flutter2/pages/pesananPage.dart';
 import 'package:belajar_flutter2/pages/profilePage.dart';
 import 'package:belajar_flutter2/pages/registerPage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: "TitilliumWeb",
+        textTheme: GoogleFonts.titilliumWebTextTheme(),
       ),
       routes: {
         "/login": (context) => Loginpage(),
