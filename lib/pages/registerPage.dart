@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -8,232 +9,219 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 10),
 
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
-                  child: Image.network(
-                    "https://i.pinimg.com/1200x/c8/3d/0a/c83d0a804b5194e8352e44fa0383c09b.jpg",
-                    width: 260,
-                    height: 220,
-                    fit: BoxFit.cover,
+                Text(
+                  'Create Account',
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 35),
+                const SizedBox(height: 6),
 
-              const Text(
-                "Register",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFD32F2F),
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
-              const Text(
-                "Please Sign Up to Continue",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey,
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              const Text(
-                "Username",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Masukan Username",
-                  prefixIcon: const Icon(
-                    Icons.person_outline,
-                    color: Color(0xFFD32F2F),
-                  ),
-                  filled: true,
-                  fillColor: const Color(0xFFFFF5F5),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide.none,
+                Text(
+                  'Join Carhartt and explore our collection.',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: Colors.grey,
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 18),
+                const SizedBox(height: 28),
 
-              const Text(
-                "Telepon",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
-              TextField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  hintText: "Masukan Telepon",
-                  prefixIcon: const Icon(
-                    Icons.phone_outlined,
-                    color: Color(0xFFD32F2F),
-                  ),
-                  filled: true,
-                  fillColor: const Color(0xFFFFF5F5),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide.none,
+                Text(
+                  'Name',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 18),
+                const SizedBox(height: 8),
 
-              const Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Masukan Password",
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                    color: Color(0xFFD32F2F),
+                TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your name',
+                    border: OutlineInputBorder(),
                   ),
-                  filled: true,
-                  fillColor: const Color(0xFFFFF5F5),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide.none,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Name wajib diisi';
+                    }
+
+                    return null;
+                  },
+                ),
+
+                const SizedBox(height: 18),
+
+                Text(
+                  'Email',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 18),
+                const SizedBox(height: 8),
 
-              const Text(
-                "Confirm Password",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Konfirmasi Password",
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                    color: Color(0xFFD32F2F),
+                TextFormField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your email',
+                    border: OutlineInputBorder(),
                   ),
-                  filled: true,
-                  fillColor: const Color(0xFFFFF5F5),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide.none,
-                  ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Email wajib diisi';
+                    }
+
+                    if (!value.contains('@')) {
+                      return 'Masukkan email yang valid';
+                    }
+
+                    return null;
+                  },
                 ),
-              ),
 
-              const SizedBox(height: 8),
+                const SizedBox(height: 18),
 
-              CheckboxListTile(
-                contentPadding: EdgeInsets.zero,
-                activeColor: const Color(0xFFD32F2F),
-                title: const Text(
-                  "Remember Me",
-                  style: TextStyle(fontSize: 14),
-                ),
-                value: false,
-                onChanged: (val) {},
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-
-              const SizedBox(height: 15),
-
-              SizedBox(
-                width: double.infinity,
-                height: 52,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFD32F2F),
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                  child: const Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  'Password',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 22),
+                const SizedBox(height: 8),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Already Have Account?",
-                    style: TextStyle(color: Colors.grey),
+                TextFormField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your password',
+                    border: OutlineInputBorder(),
                   ),
-                  TextButton(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password wajib diisi';
+                    }
+
+                    if (value.length < 6) {
+                      return 'Password minimal 6 karakter';
+                    }
+
+                    return null;
+                  },
+                ),
+
+                const SizedBox(height: 18),
+
+                Text(
+                  'Confirm Password',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                TextFormField(
+                  controller: confirmPasswordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: 'Confirm your password',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Konfirmasi password wajib diisi';
+                    }
+
+                    if (value != passwordController.text) {
+                      return 'Password tidak sama';
+                    }
+
+                    return null;
+                  },
+                ),
+
+                const SizedBox(height: 28),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 52,
+                  child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.pop(context);
+                      }
                     },
-                    child: const Text(
-                      "Sign In",
-                      style: TextStyle(
-                        color: Color(0xFFD32F2F),
-                        fontWeight: FontWeight.bold,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Register',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
 
-              const SizedBox(height: 20),
-            ],
+                const SizedBox(height: 14),
+
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'Already have an account? Login',
+                      style: GoogleFonts.poppins(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

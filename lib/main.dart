@@ -1,36 +1,26 @@
-import 'package:belajar_flutter2/pages/homePage.dart';
-import 'package:belajar_flutter2/pages/keranjangPage.dart';
-import 'package:belajar_flutter2/pages/loginPage.dart';
-import 'package:belajar_flutter2/pages/notifikasiPage.dart';
-import 'package:belajar_flutter2/pages/pesananPage.dart';
-import 'package:belajar_flutter2/pages/profilePage.dart';
-import 'package:belajar_flutter2/pages/registerPage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'pages/loginPage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const CarharttApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CarharttApp extends StatelessWidget {
+  const CarharttApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Carhartt',
       theme: ThemeData(
-        textTheme: GoogleFonts.titilliumWebTextTheme(),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.black,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        useMaterial3: true,
       ),
-      routes: {
-        "/login": (context) => Loginpage(),
-        "/register": (context) => RegisterPage(),
-        "/home": (context) => Homepage(),
-        "/profile": (context) => Profilepage(),
-        "/notifikasi": (context) => Notifikasipage(),
-        "/keranjang": (context) => Keranjangpage(),
-        "/pesanan":(context) => Pesananpage(),
-      },
-     initialRoute: "/login",
+      home: const LoginPage(),
     );
   }
 }
