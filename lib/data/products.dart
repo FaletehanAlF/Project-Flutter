@@ -1,9 +1,9 @@
 final List<Map<String, dynamic>> products = [
   {
-    'name': 'K87 T-Shirt',
-    'category': 'T-Shirt',
-    'price': 599000,
-    'image': 'assets/images/tshirt.jpg',
+    'name': 'Monterey Jacket',
+    'category': 'Jacket',
+    'price': 2676468,
+    'image': 'assets/images/jacket.jpg',
     'isFavorite': false,
   },
   {
