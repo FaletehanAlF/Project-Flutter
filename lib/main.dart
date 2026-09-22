@@ -1,26 +1,15 @@
+import 'package:belajar_flutter2/pages/detail_post_screen.dart';
 import 'package:flutter/material.dart';
-import 'pages/loginPage.dart';
 
 void main() {
-  runApp(const CarharttApp());
+  runApp(const HomePage());
 }
 
-class CarharttApp extends StatelessWidget {
-  const CarharttApp({super.key});
+class HomePageState extends StatelessWidget {
+  const HomePageState ({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Carhartt',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.black,
-        ),
-        scaffoldBackgroundColor: Colors.white,
-        useMaterial3: true,
-      ),
-      home: const LoginPage(),
-    );
+    return const Placeholder();
   }
 }
